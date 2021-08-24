@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+
+
+    <changeSet author="eda" id="1">
+        <delete schemaName="customer"
+                tableName="customer">
+            <where>firstName='Eda'</where>
+        </delete>
+    </changeSet>
+
+
+
+    <changeSet  author="eda"  id="2">
+        <insert
+                 tableName="customer">
+            <column  name="id"  value="10"/>
+            <column  name="firstName"  value="Ada"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet  author="eda"  id="3">
+        <insert
+                tableName="customer">
+            <column  name="id"  value="11"/>
+            <column  name="firstName"  value="Ada"/>
+            <column  name="lastName"  value="Yalçın"/>
+            <column  name="email"  value="ada@hotmail.com"/>
+            <column  name="phone"  value="05363214236"/>
+            <column  name="address_id"  value="1"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet author="eda" id="5">
+        <delete schemaName="customer"
+                tableName="customer">
+            <where>firstName='Ada'</where>
+        </delete>
+    </changeSet>
+
+
+    <changeSet  author="eda"  id="6">
+        <insert
+                tableName="customer">
+            <column  name="id"  value="11"/>
+            <column  name="firstName"  value="Ada"/>
+            <column  name="lastName"  value="Yalçın"/>
+            <column  name="email"  value="ada@hotmail.com"/>
+            <column  name="phone"  value="05363214236"/>
+            <column  name="address_id"  value="1"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet  author="eda"  id="7">
+        <insert
+                tableName="address">
+            <column  name="id"  value="2"/>
+            <column  name="city"  value="İstanbul"/>
+            <column  name="country"  value="Turkey"/>
+            <column  name="number"  value="6"/>
+            <column  name="street"  value="Kadıköy"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet  author="edanurhassumer"  id="1">
+        <renameColumn
+                       columnDataType="varchar(255)"
+                       newColumnName="mobilePhone"
+                       oldColumnName="phone"
+                       schemaName="customer"
+                       tableName="customer"/>
+    </changeSet>
+
+    <changeSet id="2" author="edanurhassumer">
+        <addColumn schemaName="customer"
+                   tableName="address">
+            <column name="postCode" type="varchar(255)" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="8" author="edanurhassumer">
+        <update
+                schemaName="customer"
+                tableName="address">
+            <column name="postCode" value="0000"/>
+
+        </update>
+    </changeSet>
+</databaseChangeLog>
